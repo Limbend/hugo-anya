@@ -2,12 +2,18 @@
 
 <header>
     <div class="container">
-        <h1>{{ .Title }}</h1>
-        <p class="subtitle">{{ .Params.subtitle }}</p>
+        <header class="article-header">
+            <h1>{{ .Title }}</h1>
+            <p class="subtitle">{{ .Params.subtitle }}</p>
+        </header>
+        
+        <div class="article-post">
+            {{ .Content }}
+        </div>
     </div>
 </header>
 
-{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $pages := where .Site.RegularPages "Section" "eq" .Params.SectionTarget }}
 
 <section>
     <div class="container">
