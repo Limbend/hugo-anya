@@ -5,7 +5,7 @@ const codeBlocks = document.querySelectorAll('.article-post .highlight');
 const copyText = `Copy`,
     copiedText = `Copied!`;
 
-export let renderCopyButton = function() {
+export let renderCopyButton = function(clipboard) {
     codeBlocks.forEach(codeBlock => {
         const copyButton = document.createElement('button')
         copyButton.innerHTML = copyText
@@ -22,7 +22,7 @@ export let renderCopyButton = function() {
         const code = pre[codeIndex].textContent;
 
         copyButton.addEventListener('click', () => {
-            navigator.clipboard.writeText(code)
+            clipboard.writeText(code)
                 .then(() => {
                     copyButton.textContent = copiedText;
 
