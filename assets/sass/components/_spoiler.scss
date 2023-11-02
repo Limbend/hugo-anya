@@ -1,0 +1,38 @@
+.spoiler {
+  margin: 0 0 40px 0;
+  border: 1px solid var(--border);
+  background: var(--entry);
+  border-radius: 0.35rem;
+  padding: 0.4em;
+}
+
+.dark .spoiler {
+  background: var(--entry);
+}
+
+.spoiler details summary {
+  cursor: zoom-in;
+  margin-inline-start: 20px;
+}
+
+.spoiler details[open] summary {
+  cursor: zoom-out;
+}
+
+.spoiler .details {
+  display: inline;
+  font-weight: 500;
+}
+
+.spoiler .inner {
+  margin: 0 20px;
+  padding: 10px 20px;
+}
+
+.spoiler li ul {
+  margin-inline-start: var(--gap);
+}
+
+.spoiler summary:focus {
+  outline: 0;
+}
