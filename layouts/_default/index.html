@@ -39,19 +39,24 @@
             <a class="section-button" href="{{ .RelPermalink }}">View all</a>
             {{ end }}
         </h2>
-        <div class="posts">
-            {{ range $pages.Pages }}
-            <div class="post">
-                <a href="{{ .RelPermalink }}">
-                    <div class="post-row">
-                        <time>{{ .Date.Format "02.01" }}</time>
-                        <h3>{{ .Title }}</h3>
-                    </div>
-                    <!--<div class="new-post">New!</div>-->
-                </a>
+        <input id="search-query" type="search" placeholder="Search for anything...">
+        <div id="search-results"></div>
+        <section id="articles-list">
+            <div class="posts">
+                {{ range $pages.Pages }}
+                <div class="post">
+                    <a href="{{ .RelPermalink }}">
+                        <div class="post-row">
+                            <time>{{ .Date.Format "02.01" }}</time>
+                            <h3>{{ .Title }}</h3>
+                        </div>
+                        <!--<div class="new-post">New!</div>-->
+                    </a>
+                </div>
+                {{ end }}
             </div>
-            {{ end }}
-        </div>
+        </section>
+
     </section>
     {{ if gt (len $projects) 0}}
     <section>
@@ -75,5 +80,9 @@
     </section>
     {{ end }}
 </div>
+
+{{- $opts := dict "minify" hugo.IsProduction -}}
+{{ $search := resources.Get "ts/search.ts" | js.Build $opts | fingerprint }}
+<script async src="{{ $search.RelPermalink }}"></script>
 
 {{ end }}
