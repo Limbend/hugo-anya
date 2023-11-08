@@ -6,6 +6,11 @@
 <header>
   <div class="container">
     <h1>{{ .Title }}</h1>
+    <div class="content">
+        {{ with .Content }}
+        {{ . }}
+        {{ end }}
+    </div>
     <p class="subtitle">
       <span class="count">{{ len .Pages }}</span> posts found.
     </p>
@@ -22,6 +27,12 @@
             <a href="{{ .RelPermalink }}">
               <div class="post-row">
                 <time>{{ .Date.Format "02.01" }}</time>
+                {{ if .Params.listlabel}}
+                <span>list</span>
+                {{ end }}
+                {{ if .Params.draft}}
+                <span>draft</span>
+                {{ end }}
                 <h3>{{ .Title }}</h3>
               </div>
               <!--<div class="new-post">New!</div>-->

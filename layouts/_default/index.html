@@ -48,6 +48,9 @@
                     <a href="{{ .RelPermalink }}">
                         <div class="post-row">
                             <time>{{ .Date.Format "02.01" }}</time>
+                            {{ if .Params.draft}}
+                            <span>draft</span>
+                            {{ end }}
                             <h3>{{ .Title }}</h3>
                         </div>
                         <!--<div class="new-post">New!</div>-->
