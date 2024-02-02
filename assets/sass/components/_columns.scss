@@ -1,0 +1,35 @@
+$padding-16: 1rem;
+$body-min-width: 20rem;
+
+.x-columns {
+  margin-left: -$padding-16;
+  margin-right: -$padding-16;
+
+  > div {
+    margin: $padding-16 0;
+    min-width: $body-min-width / 2;
+    padding: 0 $padding-16;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-even {
+  flex: 1 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.markdown-inner {
+  // Util class to remove extra margin in nested markdown content
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
