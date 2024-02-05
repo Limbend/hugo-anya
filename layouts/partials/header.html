@@ -16,7 +16,7 @@
                         <img src="{{ . | relURL }}" />
                     {{ end }}
                     {{ with .Site.Params.useLogoPartialSVG }}
-                    {{ partial "svgs/logo.svg" }}
+                    {{ (resources.Get "icons/logo.svg").Content | safeHTML }}
                     {{ end }}
                     
                     {{ .Site.Title }}
