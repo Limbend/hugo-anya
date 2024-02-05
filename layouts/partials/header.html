@@ -15,6 +15,10 @@
                     {{ with .Site.Params.titleLogo }}
                         <img src="{{ . | relURL }}" />
                     {{ end }}
+                    {{ with .Site.Params.useLogoPartialSVG }}
+                    {{ partial "svgs/logo.svg" }}
+                    {{ end }}
+                    
                     {{ .Site.Title }}
                     </a>
             </div>
