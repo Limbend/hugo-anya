@@ -53,6 +53,10 @@
     <meta name="msapplication-config" content="{{ "/icons/browserconfig.xml" | relURL }}" />
     <meta name="theme-color" content="#ffffff">
 
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{ end }}
+
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     {{ partial "head/custom.html" . }}
