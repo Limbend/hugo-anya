@@ -1,5 +1,5 @@
 $padding-16: 1rem;
-$body-min-width: 20rem;
+$body-min-width: 40rem;
 
 .x-columns {
   margin-left: -$padding-16;
@@ -9,6 +9,7 @@ $body-min-width: 20rem;
     margin: $padding-16 0;
     min-width: $body-min-width / 2;
     padding: 0 $padding-16;
+    font-size: 1.05rem;
   }
 }
 
@@ -31,5 +32,13 @@ $body-min-width: 20rem;
   }
   > :last-child {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .x-columns {
+    > div {
+      font-size: 1.125rem;
+    }
   }
 }
