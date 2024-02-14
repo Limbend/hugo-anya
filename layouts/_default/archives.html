@@ -14,6 +14,7 @@
 </header>
 
 {{ $pages := where .Site.RegularPages "Section" "eq" .Params.SectionTarget }}
+{{ $pages = $pages | append (where .Site.RegularPages "CurrentSection.Title" "eq" .Params.CurrentSectionTarget) | uniq }}
 
 <section>
   <div class="container">
