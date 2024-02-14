@@ -1,57 +1,56 @@
 {{ define "main" }}
 
 <header>
-    <div class="container">
-        <header class="article-header">
-            <h1>{{ .Title }}</h1>
-            <p class="subtitle">{{ .Params.subtitle }}</p>
-        </header>
-        
-        <div class="article-post">
-            {{ .Content }}
-        </div>
+  <div class="container">
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      <p class="subtitle">{{ .Params.subtitle }}</p>
+    </header>
+
+    <div class="article-post">
+      {{ .Content }}
     </div>
+  </div>
 </header>
 
 {{ $pages := where .Site.RegularPages "Section" "eq" .Params.SectionTarget }}
 
 <section>
-    <div class="container">
-        <div class="filter-container">
-          {{ $maxCategoryToShow := $.Site.Params.maxCategoryToShow | default 5 }}
-          {{ range .Site.Taxonomies.categories.TaxonomyArray | first $maxCategoryToShow }}
-            <div class="filter-item" data-value="{{ .Page.Title }}" data-type="categories">
-              {{ .Page.Title }}<sup>{{ .Count }}</sup>
-            </div>
+  <div class="container">
+    <div class="filter-container">
+      {{ $maxCategoryToShow := $.Site.Params.maxCategoryToShow | default 5 }}
+      {{ range .Site.Taxonomies.categories.TaxonomyArray | first $maxCategoryToShow }}
+      <div class="filter-item" data-value="{{ .Page.Title }}" data-type="categories">
+        {{ .Page.Title }}<sup>{{ .Count }}</sup>
+      </div>
+      {{ end }}
+    </div>
+    <input id="search-query" type="search" placeholder="Search for anything..." />
+
+    <div id="search-results"></div>
+    <section id="articles-list">
+      {{ range $pages.GroupByDate "2006" }}
+      <section>
+        <h2>{{ .Key }}</h2>
+        <div class="posts">
+          {{ range.Pages }}
+          <div class="post">
+            <a href="{{ .RelPermalink }}">
+              <div class="post-row">
+                <time>{{ .Date.Format "02.01" }}</time>
+                {{ if .Params.draft}}
+                <span>draft</span>
+                {{ end }}
+                <h3>{{ .Title }}</h3>
+              </div>
+            </a>
+          </div>
           {{ end }}
         </div>
-        <input id="search-query" type="search" placeholder="Search for anything...">
-        
-        <div id="search-results">
-        </div>
-        <section id="articles-list">
-            {{ range $pages.GroupByDate "2006" }}
-            <section>
-                <h2>{{ .Key }}</h2>
-                <div class="posts">
-                    {{ range .Pages }}
-                    <div class="post">
-                        <a href="{{ .RelPermalink }}">
-                            <div class="post-row">
-                                <time>{{ .Date.Format "02.01" }}</time>
-                                {{ if .Params.draft}}
-                                <span>draft</span>
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                            </div>
-                        </a>
-                    </div>
-                    {{ end }}
-                </div>
-            </section>
-            {{ end }}
-        </section>
-    </div>
+      </section>
+      {{ end }}
+    </section>
+  </div>
 </section>
 
 {{- $opts := dict "minify" hugo.IsProduction -}}

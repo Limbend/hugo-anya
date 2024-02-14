@@ -7,11 +7,12 @@
   <div class="container">
     <h1>{{ .Title }}</h1>
     <div class="content">
-        {{ with .Content }}
-        {{ . }}
-        {{ end }}
+      {{ with.Content }}
+      {{ . }}
+      {{ end }}
     </div>
     <p class="subtitle">
+      <!-- prettier-ignore -->
       <span class="count">{{ len .Pages }}</span> posts found.
     </p>
   </div>
