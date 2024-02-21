@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,13 +74,8 @@
   <meta name="theme-color" content="#ffffff" />
 
   {{ with .OutputFormats.Get "rss" -}}
-  {{ printf `
-  <link rel="%q" type="%q" href="%q" title="%q" />
-  ` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-  {{
-    end
-  }}
-
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ end }}
   {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
   {{ partial "head/custom.html" . }}
