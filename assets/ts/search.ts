@@ -86,6 +86,90 @@ class Search {
     });
   }
 
+  private reverseTextLayout(value: string) {
+    let layoutDict = {
+      ё: "`",
+      "`": "ё",
+      й: "q",
+      q: "й",
+      ц: "w",
+      w: "ц",
+      у: "e",
+      e: "у",
+      к: "r",
+      r: "к",
+      е: "t",
+      t: "е",
+      н: "y",
+      y: "н",
+      г: "u",
+      u: "г",
+      ш: "i",
+      i: "ш",
+      щ: "o",
+      o: "щ",
+      з: "p",
+      p: "з",
+      ф: "a",
+      a: "ф",
+      ы: "s",
+      s: "ы",
+      в: "d",
+      d: "в",
+      а: "f",
+      f: "а",
+      п: "g",
+      g: "п",
+      р: "h",
+      h: "р",
+      о: "j",
+      j: "о",
+      л: "k",
+      k: "л",
+      д: "l",
+      l: "д",
+      ж: ";",
+      ";": "ж",
+      э: "'",
+      "'": "э",
+      я: "z",
+      z: "я",
+      ч: "x",
+      x: "ч",
+      с: "c",
+      c: "с",
+      м: "v",
+      v: "м",
+      и: "b",
+      b: "и",
+      т: "n",
+      n: "т",
+      ь: "m",
+      m: "ь",
+      б: ",",
+      ",": "б",
+      "/": ".",
+      ".": "/",
+      х: "[",
+      "[": "х",
+      ъ: "]",
+      "]": "ъ",
+    };
+    return value
+      .toLowerCase()
+      .replace(/[а-я.ё\[\]a-z\`]/gi, (m) => layoutDict[m]);
+  }
+
+  private reverseLayoutSearchOBJ(value: string | object) {
+    let text = "";
+    if (typeof value === "string") {
+      text = value;
+    } else {
+      text = value.$and[0].$or[0].title;
+    }
+    return this.buildSearchValue(this.reverseTextLayout(text));
+  }
+
   private executeSearch(value: string | object) {
     if (
       (typeof value === "string" && value.length != 0) ||
@@ -102,8 +186,13 @@ class Search {
     if (result.length > 0) {
       this.populateResults(result);
     } else {
-      this.searchResults.innerHTML =
-        "<p>Sorry, nothing matched that search.</p>";
+      result = this.fuse.search(this.reverseLayoutSearchOBJ(value));
+      if (result.length > 0) {
+        this.populateResults(result);
+      } else {
+        this.searchResults.innerHTML =
+          "<p>Sorry, nothing matched that search.</p>";
+      }
     }
   }
 
@@ -155,6 +244,15 @@ class Search {
     };
   };
 
+  private uSelectOthers(newSelected: HTMLElement) {
+    Array.from(this.filterItems).forEach((el) => {
+      if (el.classList.contains("active") && newSelected != el) {
+        this.searchFilter.delete(el.dataset.value);
+        el.classList.remove("active");
+      }
+    });
+  }
+
   private filterSelect(el: HTMLElement) {
     let value = el.dataset.value;
     let type = el.dataset.type;
@@ -164,6 +262,7 @@ class Search {
     } else {
       this.searchFilter.set(value, type);
       el.classList.add("active");
+      this.uSelectOthers(el);
     }
     this.executeSearch(this.buildSearchValue(""));
   }
