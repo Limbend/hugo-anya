@@ -1,27 +1,28 @@
 baseurl: "https://example.com"
-languageCode: "en-us"
-title: "Hugo Tania"
-theme: "hugo-tania"
-paginate: 6
+languageCode: "en"
+title: "Hugo Anya"
+theme: "hugo-anya"
+paginate: 10
 
-disqusShortname: https-hugo-tania-netlify-app
+disqusShortname: https-hugo-anya-netlify-app
 
 params:
-  # Emoji will show before the blog title on site navbar.
-  titleEmoji:
+  # # You can use an emoji as the site logo:
+  # titleEmoji: 💊
+  # # Or specify the path to the image, relative to the /main_dir/static directory:
+  # titleLogo: "/icons/favicon.svg"
+  # Or change and use the svg logo located in /main_dir/themes/hugo-anya/assets/icons/logo.svg (In this case, the color of the logo may change depending on the light/dark theme).
+  useLogoPartialSVG: true
 
-  # Logo will show before the blog title on site navbar.
-  titleLogo: favicon.ico
-  
   # Enable float footnotes.
   # Default to true
   enableFootnotes: true
 
-  mainSections: ['post']
-  
-  siteName: "Hugo Tania is Amazing"
+  mainSections: ["post"]
+
+  siteName: "Hugo Anya is Amazing"
   siteDesc: "Hugo is Absurdly Fast!"
-  author: "Hugo Tania"
+  author: "Hugo Anya"
 
   colorScheme:
     # Enable toggle colorScheme
@@ -29,7 +30,7 @@ params:
     toggle: true
     # Default colorScheme
     # Default to auto
-    default: auto
+    # default: auto
 
   # Limit how many categories filter show above search input.
   # Default to 5
@@ -37,36 +38,28 @@ params:
 
   # Show your socail information with icon on index bio with `_index.md` content.
   socialOptions:
-    dev-to:
-    email:
-    facebook:
-    github:
-    instagram:
-    linkedin:
-    medium:
-    stack-overflow:
-    steam:
-    telegram:
-    twitter:
-    twitch:
-    whatsapp:
-  
-  # Comments settings
-  comments:
-    enabled: true
-    provider: giscus
-
-    giscus:
-      repo: WingLim/hugo-tania
-      id: MDEwOlJlcG9zaXRvcnkzMTYyNjQzMDc=
-      category:
-        name: Comments
-        id: DIC_kwDOEtnPc84B_WKP
+    # dev-to:
+    # email:
+    # facebook:
+    # github:
+    # instagram:
+    # linkedin:
+    # medium:
+    # stack-overflow:
+    # steam:
+    # telegram:
+    # twitter:
+    # twitch:
+    # whatsapp:
 
 menu:
   header:
-    - name: Articles
-      url: "/articles/"
+    - name: Posts
+      url: "/posts/"
+      weight: 1
+    - name: Features
+      url: "/themefeatures/"
+      weight: 2
   footer:
     - name: RSS
       url: "/index.xml"
@@ -81,3 +74,9 @@ markup:
 
 outputs:
   home: ["HTML", "RSS", "JSON"]
+  section: ["HTML", "RSS"]
+
+sitemap:
+  changeFreq: ""
+  filename: "sitemap.xml"
+  priority: -1

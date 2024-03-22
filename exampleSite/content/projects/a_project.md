@@ -1,9 +1,9 @@
 ---
-title: "Hugo Tania Theme"
-date: 2020-11-26
-description: Make a blog with hugo tania theme!
+title: "Hugo Anya Theme"
+date: 2024-03-22
+description: Make a blog with hugo anya theme!
 weight: 1
-link: https://github.com/WingLim/hugo-tania
-repo: https://github.com/WingLim/hugo-tania
+link: https://github.com/Limbend/hugo-anya
+repo: https://github.com/Limbend/hugo-anya
 icon: 📝
 ---

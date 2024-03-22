@@ -1,11 +1,11 @@
 # theme.toml template for a Hugo theme
 # See https://github.com/gohugoio/hugoThemes#themetoml for an example
 
-name = "Tania"
+name = "Anya"
 license = "MIT"
-licenselink = "https://github.com/WingLim/hugo-tania/blob/master/LICENSE"
+licenselink = "https://github.com/Limbend/hugo-anya/blob/master/LICENSE"
 description = "A simple theme for bloggers"
-homepage = "https://github.com/WingLim/hugo-tania"
+homepage = "https://github.com/Limbend/hugo-anya"
 tags = [
     "blog",
     "responsive",
@@ -16,10 +16,9 @@ features = ["darkmode"]
 min_version = "0.78.0"
 
 [author]
-    name = "WingLim"
-    homepage = "https://limxw.com"
+    name = "Limbend"
+    homepage = "https://github.com/Limbend"
 
 [original]
-    author = "Tania Rascia"
-    homepage = "https://www.taniarascia.com/"
-    repo = "https://github.com/taniarascia/taniarascia.com"
+    name = "WingLim"
+    homepage = "https://limxw.com"

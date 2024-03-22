@@ -1,24 +1,12 @@
-# Hugo Theme Tania
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bae5db51-7cc6-41e2-9615-029ade8aa264/deploy-status)](https://app.netlify.com/sites/hugo-tania/deploys)
+# Hugo Theme Anya
 
 A simple theme for bloggers.
 
-[Documentation](https://github.com/WingLim/hugo-tania/wiki)
+[Documentation](https://github.com/Limbend/hugo-anya/wiki)
 
 ## Demo
 
-[Example Site](https://hugo-tania.netlify.app/)
-
-## Introduction
-
-Most of the styles for this theme come from [taniarascia.com](https://github.com/taniarascia/taniarascia.com)
-
-I like it's style, so I transplant it to Hugo.
-
-And is that why this theme called Tania.
-
-Thank Tania Rascia again.
+[Example Blog](https://dotgs.ru)
 
 ## Requirements
 
@@ -40,13 +28,13 @@ Use Hugo Extended version (recommended) if you want to:
 
 `cd` into your site's root dir.
 
-1. Add `hugo-tania` theme as submodule.
+1. Add `hugo-anya` theme as submodule.
 
 ```bash
-git submodule add https://github.com/WingLim/hugo-tania themes/hugo-tania
+git submodule add https://github.com/Limbend/hugo-anya themes/hugo-anya
 ```
 
-2. Add `articles` page with [archives](https://github.com/WingLim/hugo-tania/wiki/Layout#archives) layout.
+2. Add `articles` page with [archives](https://github.com/Limbend/hugo-anya/wiki/Layout#archives) layout.
 
 ```bash
 cat > content/articles.md <<EOF
@@ -59,13 +47,12 @@ layout: "archives"
 EOF
 ```
 
-Edit your site config following [exampleSite/config.yaml](https://github.com/WingLim/hugo-tania/blob/main/exampleSite/config.yaml).
+Edit your site config following [exampleSite/config.yaml](https://github.com/Limbend/hugo-anya/blob/main/exampleSite/config.yaml).
 
 ## Thanks to
 
-- [hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack) for dark mode switch
-- [hugo-prose](https://github.com/yihui/hugo-prose) for float footnotes
+- [WingLim](https://github.com/WingLim) (This project is a fork of [Hugo Tania](https://github.com/WingLim/hugo-tania))
 
 ## License
 
-[MIT](https://github.com/WingLim/hugo-tania/blob/main/LICENSE)
+[MIT](https://github.com/Limbend/hugo-anya/blob/main/LICENSE)
