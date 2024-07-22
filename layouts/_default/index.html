@@ -59,6 +59,9 @@
               {{ if .Params.draft}}
               <span>draft</span>
               {{ end }}
+              {{ if .Params.hidden}}
+              <span>hidden</span>
+              {{ end }}
               <h3>{{ .Title }}</h3>
             </div>
             <!--<div class="new-post">New!</div>-->

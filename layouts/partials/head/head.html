@@ -73,6 +73,8 @@
   }}" />
   <meta name="theme-color" content="#ffffff" />
 
+  {{ with .Params.hidden }}<meta name="robots" content="noindex, nofollow, noarchive">{{ end }}
+
   {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
