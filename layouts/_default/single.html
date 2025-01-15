@@ -29,7 +29,10 @@
     </article>
 
     <div class="article-post">
-    {{ .Content }}
+        {{ if (.Params.mermaid) }}
+            {{ partial "mermaid.html" }}
+        {{ end }}
+        {{ .Content }}
     </div>
 </div>
 

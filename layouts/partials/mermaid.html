@@ -1,0 +1,27 @@
+<script
+  type="application/javascript"
+  src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  var config = {
+    startOnLoad: true,
+    theme: "default",
+    align: "center",
+    themeVariables: {
+      textColor: "var(--heading-color)",
+      nodeTextColor: "var(--heading-color)",
+      lineColor: "var(--heading-color)",
+      noteBorderColor: "var(--blockquote-left)",
+      nodeBorder: "var(--blockquote-left)",
+      mainBkg: "var(--light-background)",
+      clusterBkg: "transparent",
+      clusterBorder: "var(--heading-color)",
+      // edgeLabelBackground: "#66666622",
+    },
+  };
+  mermaid.initialize(config);
+</script>
+<style type="text/css">
+  .labelBkg .nodeLabel p {
+    background-color: var(--light-background) !important;
+  }
+</style>
