@@ -62,4 +62,7 @@
 {{ end }}
 </main>
 
+{{ $carousel := resources.Get "js/carousel.js" | js.Build | fingerprint }}
+<script type="text/javascript" src="{{ $carousel.RelPermalink }}"></script>
+
 {{ end }}

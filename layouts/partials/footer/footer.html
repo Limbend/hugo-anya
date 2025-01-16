@@ -59,4 +59,16 @@
     defer
     src="{{ $features.RelPermalink }}"
     data-enable-footnotes="{{ .Site.Params.enableFootnotes | default true }}"></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js"
+    integrity="sha384-o0gqi06am9fKVfa/jWO8/UE7OxHG6t+fgq/XaASsuwT8OBsFcxN7YhjtqyTfIxtS"
+    crossorigin="anonymous"></script>
+
+  <script>
+    const images = Array.from(document.querySelectorAll("img"));
+    mediumZoom(images, {
+      background: "var(--background)",
+    });
+  </script>
 </footer>

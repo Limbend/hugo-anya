@@ -1,0 +1,123 @@
+.carousel {
+  position: relative;
+}
+.carousel ul {
+  overflow: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  scroll-snap-points-y: repeat(100%);
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+}
+.carousel ul::-webkit-scrollbar {
+  display: none;
+}
+.carousel ul li {
+  position: relative;
+  min-width: 100%;
+  list-style: none;
+  background: url() center center / cover no-repeat;
+  scroll-snap-align: start;
+}
+.carousel ul li > * {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.carousel ul li > img {
+  object-fit: cover;
+}
+.carousel ul li > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.carousel .carousel-nav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  list-style: none;
+}
+.carousel .carousel-nav div {
+  box-sizing: content-box;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  width: 30px;
+  height: 3px;
+  background-color: var(--h1-color);
+  // border: 2px solid var(--background);
+  box-shadow: 0 0 5px 2px var(--background);
+  padding: 0;
+  margin-right: 3px;
+  margin-left: 3px;
+  // cursor: pointer;
+  opacity: 0.5;
+
+  transition: background-color 0.3s ease;
+  transition: border 0.3s ease;
+  // transition: opacity 0.6s ease;
+}
+.carousel .carousel-nav div.selected {
+  opacity: 1;
+}
+.carousel .carousel-nav div a {
+  opacity: 0;
+  display: block;
+  height: 10px;
+  width: 30px;
+  position: absolute;
+  bottom: -3px;
+}
+.carousel .prev,
+.carousel .next {
+  display: flex;
+  user-select: none;
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  font-size: 50px;
+  padding-left: 15px;
+  padding-right: 10%;
+  opacity: 0.5;
+  color: var(--h1-color);
+  text-shadow: -1px -1px 2px var(--background), 1px -1px 2px var(--background),
+    -1px 1px 2px var(--background), 1px 1px 2px var(--background);
+  left: 0;
+  line-height: 0;
+  transition: color 0.3s ease;
+  transition: text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel .next {
+  left: auto;
+  right: 0;
+  padding-left: 10%;
+  padding-right: 15px;
+}
+
+.carousel .prev:hover,
+.carousel .next:hover {
+  opacity: 1;
+}
