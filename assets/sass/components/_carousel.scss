@@ -62,9 +62,8 @@
   flex-basis: auto;
   width: 30px;
   height: 3px;
-  background-color: var(--h1-color);
-  // border: 2px solid var(--background);
-  box-shadow: 0 0 5px 2px var(--background);
+  background-color: var(--carousel-main-color);
+  box-shadow: 0 0 5px 2px var(--carousel-shadow-color);
   padding: 0;
   margin-right: 3px;
   margin-left: 3px;
@@ -100,9 +99,11 @@
   padding-left: 15px;
   padding-right: 10%;
   opacity: 0.5;
-  color: var(--h1-color);
-  text-shadow: -1px -1px 2px var(--background), 1px -1px 2px var(--background),
-    -1px 1px 2px var(--background), 1px 1px 2px var(--background);
+  color: var(--carousel-main-color);
+  text-shadow: -1px -1px 2px var(--carousel-shadow-color),
+    1px -1px 2px var(--carousel-shadow-color),
+    -1px 1px 2px var(--carousel-shadow-color),
+    1px 1px 2px var(--carousel-shadow-color);
   left: 0;
   line-height: 0;
   transition: color 0.3s ease;
