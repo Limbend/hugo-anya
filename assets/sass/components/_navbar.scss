@@ -22,7 +22,7 @@ main {
   background: var(--navbar-color);
   box-shadow: 0 3px 13px rgba(100, 110, 140, 0.1),
     0 2px 4px rgba(100, 110, 140, 0.15);
-  z-index: 2;
+  z-index: 99;
   padding: 0.5rem;
 
   .flex {
