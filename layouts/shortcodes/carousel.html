@@ -1,20 +1,26 @@
 {{ .Scratch.Set "height" (.Get "height") }}
 {{ .Scratch.Set "unit" (.Get "unit") }}
 {{ .Scratch.Set "ordinal" .Ordinal }}
-{{ .Scratch.Set "items" (.Get "items") }}
+{{ .Scratch.Set "items" (int (.Get "items")) }}
 {{ $links := split .Inner ";" }}
+{{ $numSlides := len $links }}
+{{ $showControls := gt $numSlides (.Scratch.Get "items") }}
+
 <div id="carousel{{ .Ordinal }}" class="carousel" duration="{{ .Get `duration` }}">
     <ul>
       {{ range $index, $slide := $links }}
         {{- $slide := trim $slide " \n" -}}
         {{- $image := (printf "%s" ($slide | safeURL)) -}}
 
-        <li id="c{{ $.Scratch.Get "ordinal" }}_slide{{ add $index 1}}" style="min-width: calc(100%/{{ $.Scratch.Get "items" }}); padding-bottom: {{ $.Scratch.Get "height" }}{{ $.Scratch.Get "unit" }};">
+        
+        <li id="c{{ $.Scratch.Get "ordinal" }}_slide{{ add $index 1 }}" style="min-width: calc(100%/{{ $.Scratch.Get "items" }}); padding-bottom: {{ $.Scratch.Get "height" }}{{ $.Scratch.Get "unit" }};">
           <img src="{{ $image }}" alt="" />
           <!-- <div><div>{{ $index }}</div></div> -->
         </li>
       {{ end }}
     </ul>
+    
+  {{ if $showControls }}
     <div class="carousel-nav">
       {{ range $index, $page := $links }}
         <div><a href="#c{{ $.Scratch.Get "ordinal" }}_slide{{ add $index 1 }}"></a></div>
@@ -22,4 +28,5 @@
     </div>
     <div class="prev">&lsaquo;</div>
     <div class="next">&rsaquo;</div>
+  {{ end }}
 </div>

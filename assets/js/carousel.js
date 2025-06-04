@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const carousels = document.querySelectorAll(".carousel");
   carousels.forEach(function (carousel) {
+    const nav = carousel.querySelector(".carousel-nav");
+    if (!nav) return;
+
     const ele = carousel.querySelector("ul");
     const amountvisible = Math.round(
       ele.offsetWidth / ele.querySelector("li:nth-child(1)").offsetWidth
